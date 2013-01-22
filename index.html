@@ -36,7 +36,7 @@
 
 <h2>Basic Design</h2>
 
-<p>About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc...) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written </p>
+<p>About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. Once toast get the output of test code, after parsing output, we can know how many case passed or failed.</p>
 
 <h2>Setup</h2>
 
@@ -50,10 +50,16 @@
 
 <h2>Usage</h2>
 
-<p>Here is the whole process we suggest,</p>
+<p>Here is the whole process,</p>
 
 <ul>
-<li>write a run script(shell/batch)</li>
+<li>write a script(shell, batch file etc) which can drive your test code running. </li>
+<li>keep the scirpt in a specific test box.</li>
+<li>add this test box into toast machine pool.</li>
+<li>in toast web UI, create a test job and input required information, such as: crontab run time, test machine, test stage, test command in each test stage, test case parser for each test command and so on.</li>
+<li>manaully run this job, or by crontab.</li>
+<li>get test result return from remote test box and parse case information.</li>
+<li>test report will show how many cases have been passed or failed.</li>
 </ul><h2>Bug tracker</h2>
 
 <p>Have a bug or a feature request? <a href="https://github.com/taobao/toast/issues">Please open a new issue</a>. Before opening any issue, please search for existing issues and read the <a href="https://github.com/taobao/toast/issue-guidelines">Issue Guidelines</a>.</p>
