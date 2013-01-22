@@ -7,15 +7,19 @@ General speaking, it's a tool to run your automation test case/code in a specifi
 
 ## Basic Design  
 
-About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. Once toast get the output of test code, after parsing output, we can know how many case passed or failed.
+About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. 
+
+TOAST design baed on above assumption. Test code runs in test box and TOAST can get the running output, then parsing this output and TOAST can know how many case passed, failed, or something wrong during running.
+
+For Example, test code based JUnit always print the same formatted output to screen so that we can know the detailed running result of test case. TOAST also can recognise or parse these formatted screen output. 
 
 
 ## Setup 
 
 TOAST compose of three parts:
-  * Front End, including Web UI and DB. (Linux)
-  * Back End, or Controller. (Linux)
-  * Test Box, we call it as "test agent" or "agent". (Linux or Windows)
+  * Front End, including Web UI and DB. {Linux}
+  * Back End, or Controller. {Linux}
+  * Test Box, we call it as "test agent" or "agent". {Linux or Windows}
 
 for each part installation, see [install link](http://github.com/taobao/toast/install).
 
@@ -30,6 +34,9 @@ Here is the whole process,
   * manaully run this job, or by crontab.
   * get test result return from remote test box and parse case information.
   * test report will show how many cases have been passed or failed.
+
+
+TOAST can also monitor souce code depoit, like svn, once specific svn url is changed TOAST job will run immediately (test report will include who is committer and what the code change is). From this point, we can look TOAST as a continuous integration infrastructure. Actually this is what we use in Taobao inc.
 
 
 ## Bug tracker
