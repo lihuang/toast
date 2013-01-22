@@ -22,8 +22,14 @@ for each part installation, see [install link](http://github.com/taobao/toast/in
 
 ## Usage
 
-Here is the whole process we suggest,
-  * write a run script(shell/batch)
+Here is the whole process,
+  * write a script(shell, batch file etc) which can drive your test code running. 
+  * keep the scirpt in a specific test box.
+  * add this test box into toast machine pool.
+  * in toast web UI, create a test job and input required information, such as: crontab run time, test machine, test stage, test command in each test stage, test case parser for each test command and so on.
+  * manaully run this job, or by crontab.
+  * get test result return from remote test box and parse case information.
+  * test report will show how many cases have been passed or failed.
 
 
 ## Bug tracker
