@@ -13,9 +13,9 @@ About automation test case, actually if a test case was automated, a correspondi
 ## Setup 
 
 TOAST compose of three parts:
-  * Front End, including Web UI and DB.
-  * Back End, or Controller.
-  * Test Box, we call it as "test agent" or "agent".
+  * Front End, including Web UI and DB. (Linux)
+  * Back End, or Controller. (Linux)
+  * Test Box, we call it as "test agent" or "agent". (Linux or Windows)
 
 for each part installation, see [install link](http://github.com/taobao/toast/install).
 
@@ -35,4 +35,9 @@ Here is the whole process,
 ## Bug tracker
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/taobao/toast/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/taobao/toast/issue-guidelines).
+
+
+## Difference with STAFF OR Hudson Jenkins
+
+to be continued.
 
