@@ -36,16 +36,20 @@
 
 <h2>Basic Design</h2>
 
-<p>About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. Once toast get the output of test code, after parsing output, we can know how many case passed or failed.</p>
+<p>About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. </p>
+
+<p>TOAST design baed on above assumption. Test code runs in test box and TOAST can get the running output, then parsing this output and TOAST can know how many case passed, failed, or something wrong during running.</p>
+
+<p>For Example, test code based JUnit always print the same formatted output to screen so that we can know the detailed running result of test case. TOAST also can recognise or parse these formatted screen output. </p>
 
 <h2>Setup</h2>
 
 <p>TOAST compose of three parts:</p>
 
 <ul>
-<li>Front End, including Web UI and DB.</li>
-<li>Back End, or Controller.</li>
-<li>Test Box, we call it as "test agent" or "agent".</li>
+<li>Front End, including Web UI and DB. {Linux}</li>
+<li>Back End, or Controller. {Linux}</li>
+<li>Test Box, we call it as "test agent" or "agent". {Linux or Windows}</li>
 </ul><p>for each part installation, see <a href="http://github.com/taobao/toast/install">install link</a>.</p>
 
 <h2>Usage</h2>
@@ -60,9 +64,15 @@
 <li>manaully run this job, or by crontab.</li>
 <li>get test result return from remote test box and parse case information.</li>
 <li>test report will show how many cases have been passed or failed.</li>
-</ul><h2>Bug tracker</h2>
+</ul><p>TOAST can also monitor souce code depoit, like svn, once specific svn url is changed TOAST job will run immediately (test report will include who is committer and what the code change is). From this point, we can look TOAST as a continuous integration infrastructure. Actually this is what we use in Taobao inc.</p>
+
+<h2>Bug tracker</h2>
 
 <p>Have a bug or a feature request? <a href="https://github.com/taobao/toast/issues">Please open a new issue</a>. Before opening any issue, please search for existing issues and read the <a href="https://github.com/taobao/toast/issue-guidelines">Issue Guidelines</a>.</p>
+
+<h2>Difference with STAFF OR Hudson Jenkins</h2>
+
+<p>to be continued.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/taobao">taobao</a></p>
