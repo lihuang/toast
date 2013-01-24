@@ -6,10 +6,12 @@ General speaking, it's a tool to run your automation test case/code in a specifi
 
 ## Features
 
-Test Script Runner in Remote Agent Box;
-Test Machine Management;
-Test Job Management;
- 
+* Test Script/Command invoking in Remote Agent Box, like a Test Runner.
+* Test Job definition, including varietal amount of stage and command.
+* Test Machine Management.
+* Four methods to run a test job: on-demmand, crontab, source depoit code check in and via Open API;
+* Test Reporting.
+* Test Case Management. (Ongoing, not finished yet)
 
 
 ## Basic Design  
