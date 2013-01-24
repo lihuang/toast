@@ -4,6 +4,13 @@ TOAST is short for "Toast Open Automation System for Test".
 
 General speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.
 
+## Features
+
+Test Script Runner in Remote Agent Box;
+Test Machine Management;
+Test Job Management;
+ 
+
 
 ## Basic Design  
 
