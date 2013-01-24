@@ -1,40 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>TOAST by taobao</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="TOAST : Toast Open Automation System for Test" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>TOAST</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>TOAST</h1>
-        <p>Toast Open Automation System for Test</p>
 
-        <p class="view"><a href="https://github.com/taobao/toast">View the Project on GitHub <small>taobao/toast</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/taobao/toast">View on GitHub</a>
 
+          <h1 id="project_title">TOAST</h1>
+          <h2 id="project_tagline">Toast Open Automation System for Test</h2>
 
-        <ul>
-          <li><a href="https://github.com/taobao/toast/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/taobao/toast/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/taobao/toast">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/taobao/toast/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/taobao/toast/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h2>Introduction</h2>
 
 <p>TOAST is short for "Toast Open Automation System for Test". </p>
 
 <p>General speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.</p>
 
-<h2>Basic Design</h2>
+<h2>Features</h2>
+
+<ul>
+<li>Test Script/Command invoking in Remote Agent Box, like a Test Runner.</li>
+<li>Test Job definition, including varietal amount of stage and command.</li>
+<li>Test Machine Management.</li>
+<li>Open API.</li>
+<li>Four methods to run a test job: on-demmand, crontab, source depoit code check in and via Open API;</li>
+<li>Test Reporting.</li>
+<li>Test Case Management. (Ongoing, not finished yet)</li>
+</ul><h2>Basic Design</h2>
 
 <p>About automation test case, actually if a test case was automated, a corresponding test code (usually based on a specific programming test framework, such as Xunit, Selenium or etc.) having been written already, from running aspect we look test code (usually a test method in souce code) as test case. Test code is built to excutable binary and it will run on a test box against deployed test environment. Since test code is written based on a framework, the output is formatted. </p>
 
@@ -70,16 +83,21 @@
 
 <p>Have a bug or a feature request? <a href="https://github.com/taobao/toast/issues">Please open a new issue</a>. Before opening any issue, please search for existing issues and read the <a href="https://github.com/taobao/toast/issue-guidelines">Issue Guidelines</a>.</p>
 
-<h2>Difference with STAFF OR Hudson Jenkins</h2>
+<h2>Difference with STAF or Hudson Jenkins</h2>
 
 <p>to be continued.</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/taobao">taobao</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TOAST maintained by <a href="https://github.com/taobao">taobao</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
