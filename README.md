@@ -54,7 +54,7 @@ TOAST can also monitor souce code depoit, like svn, once specific svn url is cha
 Have a bug or a feature request? [Please open a new issue](https://github.com/taobao/toast/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/taobao/toast/issue-guidelines).
 
 
-## Difference with STAF or Hudson Jenkins
+## What's difference with STAF or Hudson Jenkins
 
 to be continued.
 
