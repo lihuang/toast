@@ -1,4 +1,3 @@
-
 ## Introduction
 
 TOAST is short for "Toast Open Automation System for Test". 
@@ -56,12 +55,12 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/ta
 
 
 ## What's difference with Existing tool
-###STAF
-###Hudson Jenkins
+  * STAF
+  * Hudson Jenkins
 
-to be continued.
+(to be)
 
 ## Mailing lists
 Mailing lists are usually good places to ask questions. We highly recommend you subscribe Toast's mailing lists below:
-http://code.taobao.org/mailman/listinfo/tengine (English) 
-http://code.taobao.org/mailman/listinfo/tengine-cn (Chinese)
+  * http://code.taobao.org/mailman/listinfo/tengine (English) 
+  * http://code.taobao.org/mailman/listinfo/tengine-cn (Chinese)
