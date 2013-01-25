@@ -4,6 +4,8 @@ TOAST is short for "Toast Open Automation System for Test".
 
 General speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.
 
+For more Information, see [User Guides](https://github.com/taobao/toast/wiki)
+
 ## Features
 
 * Test Script/Command invoking in Remote Agent Box, like a Test Runner.
@@ -31,7 +33,7 @@ TOAST compose of three parts:
   * Back End, or Controller. {Linux}
   * Test Box, we call it as "test agent" or "agent". {Linux or Windows}
 
-for each part installation, see [User Guideline's Setup Part](https://github.com/taobao/toast/wiki).
+for each part installation, see [Setup Part in User Guides](https://github.com/taobao/toast/wiki).
 
 Here is the whole process,
   * write a script(shell, batch file etc) which can drive your test code running. 
