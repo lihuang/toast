@@ -4,6 +4,16 @@ TOAST is short for "Toast Open Automation System for Test".
 
 General speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.
 
+## Features
+
+* Test Script/Command invoking in Remote Agent Box, like a Test Runner.
+* Test Job definition, including varietal amount of stage and command.
+* Test Machine Management.
+* Open API.
+* Four methods to run a test job: on-demmand, crontab, source depoit code check in and via Open API;
+* Test Reporting.
+* Test Case Management. (Ongoing, not finished yet)
+
 
 ## Basic Design  
 
@@ -14,17 +24,14 @@ TOAST design baed on above assumption. Test code runs in test box and TOAST can 
 For Example, test code based JUnit always print the same formatted output to screen so that we can know the detailed running result of test case. TOAST also can recognise or parse these formatted screen output. 
 
 
-## Setup 
+## Setup & Usage
 
 TOAST compose of three parts:
   * Front End, including Web UI and DB. {Linux}
   * Back End, or Controller. {Linux}
   * Test Box, we call it as "test agent" or "agent". {Linux or Windows}
 
-for each part installation, see [install link](http://github.com/taobao/toast/install).
-
-
-## Usage
+for each part installation, see [User Guideline's Setup Part](https://github.com/taobao/toast/wiki).
 
 Here is the whole process,
   * write a script(shell, batch file etc) which can drive your test code running. 
@@ -44,7 +51,13 @@ TOAST can also monitor souce code depoit, like svn, once specific svn url is cha
 Have a bug or a feature request? [Please open a new issue](https://github.com/taobao/toast/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/taobao/toast/issue-guidelines).
 
 
-## Difference with STAF or Hudson Jenkins
+## What's difference with Existing tool
+  * STAF
+  * Hudson Jenkins
 
-to be continued.
+(to be)
 
+## Mailing lists
+Mailing lists are usually good places to ask questions. We highly recommend you subscribe Toast's mailing lists below:
+  * http://code.taobao.org/mailman/listinfo/tengine (English) 
+  * http://code.taobao.org/mailman/listinfo/tengine-cn (Chinese)
