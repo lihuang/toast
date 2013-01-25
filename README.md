@@ -24,7 +24,7 @@ TOAST design baed on above assumption. Test code runs in test box and TOAST can 
 For Example, test code based JUnit always print the same formatted output to screen so that we can know the detailed running result of test case. TOAST also can recognise or parse these formatted screen output. 
 
 
-## Setup 
+## Setup & Usage
 
 TOAST compose of three parts:
   * Front End, including Web UI and DB. {Linux}
@@ -32,9 +32,6 @@ TOAST compose of three parts:
   * Test Box, we call it as "test agent" or "agent". {Linux or Windows}
 
 for each part installation, see [Setup Documentation](https://github.com/taobao/toast/wiki).
-
-
-## Usage
 
 Here is the whole process,
   * write a script(shell, batch file etc) which can drive your test code running. 
