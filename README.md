@@ -31,7 +31,7 @@ TOAST compose of three parts:
   * Back End, or Controller. {Linux}
   * Test Box, we call it as "test agent" or "agent". {Linux or Windows}
 
-for each part installation, see [Setup Documentation](https://github.com/taobao/toast/wiki).
+for each part installation, see [User Guideline's Setup Part](https://github.com/taobao/toast/wiki).
 
 Here is the whole process,
   * write a script(shell, batch file etc) which can drive your test code running. 
