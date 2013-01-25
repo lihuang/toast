@@ -1,3 +1,5 @@
+[TOC]
+
 ## Introduction
 
 TOAST is short for "Toast Open Automation System for Test". 
