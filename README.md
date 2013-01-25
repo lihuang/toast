@@ -1,5 +1,4 @@
 
-
 ## Introduction
 
 TOAST is short for "Toast Open Automation System for Test". 
@@ -56,7 +55,13 @@ TOAST can also monitor souce code depoit, like svn, once specific svn url is cha
 Have a bug or a feature request? [Please open a new issue](https://github.com/taobao/toast/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/taobao/toast/issue-guidelines).
 
 
-## What's difference with STAF or Hudson Jenkins
+## What's difference with Existing tool
+###STAF
+###Hudson Jenkins
 
 to be continued.
 
+## Mailing lists
+Mailing lists are usually good places to ask questions. We highly recommend you subscribe Toast's mailing lists below:
+http://code.taobao.org/mailman/listinfo/tengine (English) 
+http://code.taobao.org/mailman/listinfo/tengine-cn (Chinese)
