@@ -1,0 +1,229 @@
+#!/usr/bin/python2.6
+# -*- coding: utf-8 -*-
+#
+#   Copyright (C) 2007-2013 Alibaba Group Holding Limited
+#
+#   This program is free software;you can redistribute it and/or modify
+#   it under the terms of the GUN General Public License version 2 as
+#   published by the Free Software Foundation.
+#   
+# unittest_run
+#   This file is the entrance for kinds of tests.
+#
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__),"./test"))
+import phptest
+import pythontest
+import perltest
+import shelltest
+import luatest
+
+sys.path.append(os.path.join(os.path.dirname(__file__),"./test/ctest"))
+import ctest
+
+sys.path.append(os.path.join(os.path.dirname(__file__),"./test/jtest"))
+import jtest
+
+class UnitTest:
+    def __init__(self):
+        self.options = {}#It is a dictionary that stored all the command line arguments for unittest_run
+        self.CONFILE = ""
+    
+    '''
+    unit_test:Create an instance for every project
+    '''
+    def unit_test(self,project_type):
+        if (project_type == "python"):
+            return pythontest.PythonTest(self.options,self.CONFILE)
+        elif project_type == "php":
+            return phptest.PhpTest(self.options,self.CONFILE)
+        elif project_type == "maven":
+            return jtest.MvnTest(self.options,self.CONFILE)
+        elif project_type == "perl":
+            return perltest.PerlTest(self.options,self.CONFILE)
+        elif project_type == "shell":
+            return shelltest.ShellTest(self.options,self.CONFILE)
+        elif project_type == "lua":
+            return luatest.LuaTest(self.options, self.CONFILE)
+        else:#Create an ctest instance
+            return ctest.CTest(self.options,self.CONFILE)
+    
+
+    def usage(self):
+        print "Usage: unittest_run -s svn_trunk_path  -k build_commands -u run_unittest_commands [OPTIONS] \n\n"
+        print "Use this script to run a testing program automated. Specify the --yes(-y) option "
+        print "to generate code coverage for the program.\n\n"
+        print "Msic:\n"
+        print "   -h, --help                  Print this for help,then exit\n"
+        print "Operation:\n"
+    
+        print "   -k, --buildcommands         Build the project by this commands"
+        print "   -s, --svn                   to supply svn path for checkout. Couldn't use with -l at the same time"
+        print "   -l, --localdir              Specify the project's local directory which must be a absolute path.Couldn't use with -s"
+        print "   -u, --unitestcommands       run the unitest by these commands\n"
+        print "Options:\n"
+
+        print "   -c, --configfile            Specify configfile for this script"
+        print "   -d, --debug                 Print details for every step"
+        print "   -D, --dependency            Specify packages that the program dependence on"
+        print "   -m, --makefilepath          for c or c++ specify relative path for make; for java specify the ratetivve path for run mvn"
+        print "   -H, --htdocs                Store  html of the coverage data to local /home/a/share/htdocs/"
+        print "   -M, --mvn                   for java project. Needn't -k"
+        print "   -y, --yes                   Generate coverage data for the project"
+        print "   -e, --extract               do not show the coverage data of the standard library files\n"
+        print "   -w, --workplace             save workplace and we can update code next time\n"
+        print "   -i, --ignore                ignore build error check\n"
+        print "   -r, --require               Specify the spec file that we can install the dependecies for the project \n"
+        print "   -n, --scons                 Compile the project by scons\n"
+        print "   -I, --ignore_dirs           Need not capture the coverage information for the ignore_dirs \n"
+        print "   -a, --onecommand            Look at commands in -u option as just one command,will not popen multi-processes. \n"
+        print "   -p, --keep                  keep defalt code coverage calculation, do NOT care the codes test doesn't hit\n"
+
+        print "   --python                    support python project\n"
+        print "   --php  		      support php project\n"
+        print "   --perl                      support perl project\n"
+        print "   --lua                       support lua test, copy the lcov.report.out to server\n"
+
+        print"Examples of c/cpp makefile project:"
+        print"[ sudo /usr/local/toast/script/unittest_run -s \"http://svn.simba.taobao.com/svn/QA/automation/trunk/external/gtest-1.5.0/\" -k \"cd samples;sudo make coverage=yes\" -u \" ./samples/sample_unittest;./samples/sample1_unittest\" -y -H ]\n"
+
+        print"Examples of java maven project:"
+        print"[ sudo /usr/local/toast/script/unittest_run -s \"http://svn.simba.taobao.com/svn/Site/Brand/trunk/\" -u \"mvn clean test cobertura:cobertura \" -y -H -M ]\n"
+
+    def get_value(self,dictionary,key):
+        return dictionary.get(key,'default') 
+    
+    '''
+    check_options:check whether the arguments are rightful,if not then return false
+    input:
+        self.options
+    output:
+        boolean
+    '''
+    def check_options(self):
+        message = "Use unittest_run --help to get usage information\n"
+        svnurl = self.get_value(self.options,'svnurl') 
+        localdir = self.get_value(self.options,'localdir') 
+        mvn = self.get_value(self.options,'mvn') 
+        makefilecommands = self.get_value(self.options,'makefilecommands') 
+        unittestcommands = self.get_value(self.options,'unittestcommands') 
+        if (svnurl== 'default'and localdir =='default'):
+            print "Need one of the options -l,-s,"+message
+            return False
+        else:
+            if localdir !='default' and os.path.exists(localdir)== False:
+                print "Invalid localdir: "+localdir +" does not exist"
+                return False
+            if (mvn == 1 and makefilecommands != "default"):
+                print "Needn't -k for mvn,"+message
+                return False
+            if (mvn == 0 and makefilecommands == "default"):
+                print "Need commands for make."+message
+                return False
+            if(unittestcommands == "default"):
+                print "Need commands for run unittests."+message
+                return False
+        return True;
+    
+    '''
+    get_options:It is used to read all the command line arguments.
+    input:
+        argv:include all the command line arguments
+    output:
+        self.options:It is a dic that store all the arguments
+    '''
+    def get_options(self,argv):
+        import getopt
+        try:
+            opts,args = getopt.getopt(argv,"hdyHewMinaps:m:k:u:c:o:D:l:r:I:", ["help", "debug", "yes","mvn", "ignore","scons", "keep","svn=", "makefilepath=", "buildcommands=", "unitestcommands=", "configfile=", "objectfilepath=","dependency=","localdir=","require=","ignore-dirs=","python","php","perl","shell","lua","onecommand"])
+        except getopt.GetoptError:
+            self.usage()
+            sys.exit(2)
+        for opt, arg in opts:
+            if opt in ("-h", "--help"):
+                self.usage()
+                sys.exit()
+            elif opt in ("-d", "--debug"):
+                self.options['debug'] = 1
+            elif opt in ("-y", "--yes"):
+                self.options['iscodecoverage']='yes'
+            elif opt in ("-s", "--svn"):
+                self.options['svnurl']=arg
+                print "svn trunk path: "+self.options['svnurl']
+            elif opt in ("-m", "--makefilepath"):
+                self.options['makefilepath']=arg
+                print "makefile path: "+self.options['makefilepath']
+            elif opt in ("-k", "--buildcommands"):
+                self.options['makefilecommands']=arg
+                print "build commands: "+self.options['makefilecommands']
+            elif opt in ("-u", "--unittestcommands"):
+                self.options['unittestcommands']=arg
+                print "unittest commands: "+self.options['unittestcommands']
+            elif opt in ("-c", "--configfile"):
+                self.CONFILE=arg
+                print "config file: "+self.CONFILE
+            elif opt in ("-o", "--objectfilepath"):
+                self.options['OBJECTPATH']=arg
+                print "object file path: " + self.options['OBJECTPATH']
+            elif opt in ("-H","--htdocs"):
+                self.options['HTDOCS'] = 1
+            elif opt in ("-D","--dependency"):
+                self.options['dependpackage'] = arg
+                print "dependency package is: "+self.options['dependpackage']
+            elif opt in ("-l","--localdir"):
+                self.options['localdir'] = os.path.abspath(arg)
+            elif opt in ("-p","--keep"):
+                self.options['keep'] = 1;
+            elif opt in ("-M","--mvn"):
+                self.options['mvn'] = 1;
+                self.options['project_type'] = "maven"
+            elif opt in("-r","--require"):
+                self.options['specdir'] = arg
+            elif opt in ("-e","--extract"):
+                self.options['extract'] = 1;
+            elif opt in ("-w", "--workplace"):
+                self.options['workplace'] = 1;
+            elif opt in("-i", "--ignore"):
+                self.options['g_ignore_build_error_flag'] = 1;
+            elif opt in("-n","--scons"):
+                self.options['scons'] = 1
+            elif opt in("-a","--onecommand"):
+                self.options['onecommand'] = 1
+            elif opt in ("-I","--ignore-dirs"):
+                self.options['ignoreDirs'] = arg.split(",")
+            elif opt in("--python"):
+                self.options['project_type'] = "python"
+            elif opt in("--php"):
+               self.options['project_type'] = "php"
+            elif opt in("--perl"):
+                self.options['project_type'] = "perl"
+            elif opt in("--shell"):
+                self.options['project_type'] = "shell"
+            elif opt in("--lua"):
+                self.options['project_type'] = "lua"
+
+if __name__ == '__main__':
+    unittest = UnitTest()
+
+    '''
+        get the config file that include svn account/password, infomation of server,Etc.
+        The server is used to store the code coverage for every project.
+    '''
+    unittest.CONFILE = os.path.splitext(os.path.abspath(__file__))[0] + '.conf'
+
+    if not sys.argv[1:]:
+        unittest.usage()
+        sys.exit()
+    unittest.get_options(sys.argv[1:])#Read the command line arguments
+    option = unittest.check_options() #Check whether the command line arguments are rightful
+    if not option:
+        sys.exit(2);
+    else:
+        project_type = unittest.get_value(unittest.options,'project_type') 
+        test=unittest.unit_test(project_type)
+        a = test.start()
+        if (100==a):
+            sys.exit(a)
+        print "run complete\n\n"
