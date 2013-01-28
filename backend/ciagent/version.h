@@ -1,0 +1,4 @@
+#ifndef TOAST_AGENT_VERSION_H
+#define TOAST_AGENT_VERSION_H
+#define AGENT_VERSION    "1.0.2"
+#endif
