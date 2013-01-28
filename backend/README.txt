@@ -25,8 +25,8 @@ a. toastÓ¦ÓÃµ½µÄ¿ªÔ´¿â°üÀ¨libcurl,libjson, log4cpp ÕâÈı¸ö¿âcontrollerºÍagent¾ùÓĞ
    ÁíÍâcontroller »¹ÓÃµ½rrdtool£¬ Òª±àÒëcontrollerĞèÒªrrdtool-devel
    ¶ÔÓÚsvn¼à¿Øagent»¹ĞèÒªsvnclient¿â£¬Õâ¸öĞèÒª°²×°subversion-devel
 
-b. Èç¹ûËùÓĞ¿â¶¼×¼±¸ºÃ£¬ÕâĞèÒªÔÚ¸ùÄ¿Â¼Make¼´¿É,agentÔÚÏàÓ¦agentÄ¿Â¼ÄÚ£¨toast£©
-   µ«controllerĞèÒªµ¥¶ÀÔÚcontrollerÄ¿Â¼make
+b. Èç¹ûËùÓĞ¿â¶¼×¼±¸ºÃ£¬ÔÚbackendÄ¿Â¼Make, ´ËÊ±agentºÍcontroller¹«¹²´úÂëÒÔ¼°agent¶¼Ó¦±àÒë³É¹¦(agentÔÚÏàÓ¦agentÄ¿Â¼ÄÚ£¨toast£©)
+   controllerĞèÒªµ¥¶ÀÔÚcontrollerÄ¿Â¼ÔÙ´Îmake
 ÎÒÃÇÔÚÏÂÁĞÆ½Ì¨ÏÂ±àÒëÍ¨¹ı£º
 rhel 5£¬ 6 centos 6 ĞèÒªcontrollerĞèÒªrrdtool rrdtool-devel£¬ ciagentĞèÒªlibsubversion-devel
 
@@ -36,16 +36,6 @@ b. ÔÚubuntuÏÂ±àÒëciagentĞèÒª°²×°libapr1-dev, libaprutil1-dev libsvn-dev£¬²¢ÓĞ¿ÉÄ
    -I/usr/include/apr-1 to -I/usr/include/apr-1.0 Í¨¹ıapr-config --includes È·¶¨Í·ÎÄ¼şµÄÎ»ÖÃ£¬×öĞŞ¸Ä
    LINK= -lpthread -ldl -lrt -lsvn_client-1 to LINK= -lpthread -ldl -lrt -lsvn_client-1 -lapr-1
 
-
-
-
-°²×°£º
-controller: 
-ÒªÔËĞĞcontrollerÖ»ĞèÒª±àÒë³öÀ´µÄcontroller¿ÉÖ´ĞĞÎÄ¼şºÍcontroller.conf ÎÄ¼ş¼´¿É
-agent£º
-ÒªÔËĞĞagent½öĞèÒª±àÒë³öÀ´µÄ¿ÉÖ´ĞĞÎÄ¼ştoastºÍAgentDaemon.conf¼´¿É
-
-Äã¿ÉÒÔ×ÔĞĞ½«ĞèÒªµÄÎÄ¼ş±àÒë£¬²¢´ò°ü£¬·½±ã°²×°
 
 3 ÅäÖÃÎÄ¼şËµÃ÷
 a. agent
