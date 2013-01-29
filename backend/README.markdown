@@ -67,6 +67,7 @@ agent配置文件
     log4cpp.appender.MAIN.layout.ConversionPattern=%d{%Y-%m-%d %H:%M:%S} [%p]: %m%n
 
 ciagent配置文件
+
     []
     server=yourcontrollerordamain  // controller ip或者域名
     port=16868                     // 端口
@@ -89,6 +90,7 @@ ciagent配置文件
     log4cpp.appender.MAIN.layout.ConversionPattern=%d{%Y-%m-%d %H:%M:%S} [%p]: %m%n
 
 controller 配置文件
+
     []
     monitor_path = /tmp/toast     // controller接收前端命令文件目录，需要和前端配合设置，controller不断扫描这个目录，
                                  如果有命令文件则读出，执行命令，然后删除命令
