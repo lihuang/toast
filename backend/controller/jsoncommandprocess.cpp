@@ -254,13 +254,6 @@ int CommandProcessor::SendCommandToAgent(int run_type, const string &account,
 	task->fail_action = 0;
 	task->log_fd= -1;  // initlize the fd to invalidate fd
 
-	// only the run command need to insert to the running list,
-	// cancel run has no response
-	if(run_type == COMMAND_RUN)
-	{
-	    TaskRunManager::Instance() ->InsertTaskRun(task);
-	}
-
 	// 1 Send task to the agent
 	// 2 Insert the task to the task list.
 	AgentCommand *agent_command;
@@ -285,7 +278,7 @@ int CommandProcessor::SendCommandToAgent(int run_type, const string &account,
 	Log::Debug("command: " + task->command);
 	ActiveAgentsManager::Instance()->LockList();
 	AgentInfo *info = ActiveAgentsManager::Instance()->FindByIP(agent_ip);
-	 if(!info)   // no such agent
+	if(!info)   // no such agent
 	{
 		if(run_type == COMMAND_RUN)
 		{
@@ -298,6 +291,12 @@ int CommandProcessor::SendCommandToAgent(int run_type, const string &account,
 		}
 	       ActiveAgentsManager::Instance()->UnlockList();			
        	return -1;
+	}
+    // only the run command need to insert to the running list,
+	// cancel run has no response
+	if(run_type == COMMAND_RUN)
+	{
+	    TaskRunManager::Instance() ->InsertTaskRun(task);
 	}
 	SendPacket(info, buf,  agent_command->length);
 	ActiveAgentsManager::Instance()->UnlockList();	
