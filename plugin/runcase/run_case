@@ -1,0 +1,116 @@
+#/usr/bin/python2.6
+# Filename: run_case
+# -*- coding: utf-8 -*-
+
+#
+#   Copyright (C) 2007-2013 Alibaba Group Holding Limited
+#
+#   This program is free software;you can redistribute it and/or modify
+#   it under the terms of the GUN General Public License version 2 as
+#   published by the Free Software Foundation.
+#
+
+import sys
+import getopt
+import os
+TOOL = ["mmt", "mvn"]
+
+
+def usage():
+    '''
+    @summary: run_case manual.
+    '''
+    print "Usage: run_case -t tool -u url -c case_id [-f] ...\n"
+    print "Misc:\n",
+    print "	-h, --help	Print this for help, then exit.\n"
+    print "Operation:\n",
+    print "	-t, --tool	The test tool to run the test case.\n",
+    print "	-u, --url	The URL for checking out the test case, support SVN only now.\n \
+                                For maven project, this is maven project base svn url",
+    print "	-c, --caseid	The caseid which comes from TOAST, and it will be printed.\n \
+                                For maven project, this is the test calss will be run.",
+    print "	-f, --function	The function which will be run, some test tools no need it(such as MMT).\n"
+    print "Example:\n",
+    print "	run_case -t mmt -u http://xxx.xxx.xxx/svn/case1.php -c 1\n"
+
+
+def get_options(argv):
+    '''
+    @summary: get options and check options.
+    '''
+    message = "Use run_case --help to get usage information.\n"
+    options = {
+        "tool": "",
+        "url": "",
+        "function": "",
+        "caseid": ""
+    }
+    try:
+        opts, args = getopt.getopt(argv[1:], "ht:u:c:f:", ["help", "tool=", "url=", "caseid=", "function="])
+        for o, a in opts:
+            if o in ("-h", "--help"):
+                usage()
+                exit(0)
+            if o in ("-t", "--tool"):
+                if a in TOOL:
+                    options["tool"] = a
+                else:
+                    print "The test tool is required, and support " + ", ".join(TOOL) + " only. " + message
+                    exit(1)
+            if o in ("-u", "--url"):
+                if "" != a:
+                    options["url"] = a
+                else:
+                    print "The URL is required. " + message
+                    exit(1)
+            if o in ("-c", "--caseid"):
+                if "" != a:
+                    options["caseid"] = a
+                else:
+                    print "The caseid is required. " + message
+                    exit(1)
+            if o in ("-f", "--function"):
+                if "" != a:
+                    options["function"] = a
+                else:
+                    print "The function is required. " + message
+                    exit(1)
+        return options
+    except getopt.GetoptError:
+        print message
+        exit(1)
+
+if __name__ == "__main__":
+    if 1 == len(sys.argv):
+        usage()
+        exit(0)
+    else:
+        options = get_options(sys.argv)
+        try:
+            if options["tool"] == 'mvn':
+               #from './tool/runmvn' import run_mvn_case
+               sys.path.append(os.path.join(os.path.dirname(__file__),"./tool"))
+               from runmvn import run_mvn_case
+               cfg_file = os.path.splitext(os.path.abspath(__file__))[0] + ".conf"
+               print cfg_file + options["caseid"] + options["url"]
+               runner = run_mvn_case(cfg_file, options["function"], options["url"], options["caseid"])
+               try:
+                   runner.get_code()
+                   print 'code has checked out'
+                   runner.run_a_case(options["function"])
+               except Exception, ex:
+                   print Exception,":",ex
+                   print traceback.format_exc()
+               finally:
+                   runner.cleanup()
+                   sys.exit(0)
+            else: 
+                toollib = __import__("tool." + options["tool"], globals(), locals(), ['Mmt'])
+                Tool = getattr(toollib, options["tool"].capitalize())
+                tool = Tool(options["url"], options["caseid"])
+                tool.execute()
+                sys.exit(0)
+        except ImportError, e:
+            print "Import tool module error."
+            print e
+            exit(1)
