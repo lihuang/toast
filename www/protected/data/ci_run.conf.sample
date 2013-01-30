@@ -1,0 +1,54 @@
+[general]
+#svn 用户名信息
+svn_username    = SVN_USERNAME
+svn_pwd         = SVN_PWD
+#运行目录
+base_path       = /tmp/TEST/
+log_level       = debug
+#共享服务器信息，中间数据及文件存储地址
+server_name     = SERVER_NAME
+server_path     = SERVER_PATH
+server_ssh_user = SERVER_SSH_USER
+server_ssh_pwd  = SERVER_SSH_PWD
+
+
+[unit_test]
+#单元测试代码路径
+ut_svn          = UT_SVN
+#单元测试运行命令, 在取得上述svn地址之后，运行单元测试代码的命令
+ut_cmd          = make; cd test; ./harness_simple_unittest
+#单元测试运行之后的命令，可选。如果有独立的单元测试运行脚本，可以在这里调用
+ut_post_cmd     = ifconfig; hostname;
+
+
+[build]
+#打包svn地址
+build_svn       = BUILD_SVN
+#打包之前的编build命令
+build_cmd       = hostname
+#rpm spec文件，相对路径，相对于上面的打包svn地址
+build_spec      = rpm/gtest.spec
+#build运行之后的命令，可选。不使用rpm spec的build方式，可以直接调用此命令
+build_post_cmd  = who
+
+
+[deploy]
+#需要部署的机器信息
+deploy_box      = DEPLOY_BOX
+deploy_user     = USERNAME
+deploy_pwd      = PASSWORD
+#部署安装命令
+deploy_cmd      = hostname; whoami
+
+
+[fun_test]
+#功能测试机器信息
+fun_test_box    = FUN_TEST_BOX
+fun_test_user   = USERNAME
+fun_test_pwd    = PASSWORD
+#功能测试代码路径
+fun_test_svn    = FUN_TEST_SVN
+#功能测试运行路径
+fun_test_path   = /tmp/toast/
+#功能测试运行命令
+fun_test_cmd    = FUN_TEST_CMD
