@@ -5,12 +5,10 @@
 * pycrypto, via pip
 * scpclient,  via pip
 
-## Setup
+### Requirement Setup
     $ /usr/bin/easy_install pip
     $ pip install paramiko
     $ pip install scpclient
     $ pip install simplejson
 
 
-optional:
-* rpm_create
