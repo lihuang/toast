@@ -1,10 +1,10 @@
 ## Introduction
 
-TOAST is short for "Toast Open Automation System for Test". 
+TOAST is short for "Toast Open Automation System for Test". TOAST a test execution system, and general speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.
 
-General speaking, it's a tool to run your automation test case/code in a specific test box and then show the test result back to you via Email notification or from web UI test result page.
+Automation of test execution can be a difficult service to provide in a universal way. For a large engineering organization to share common test execution infrastructure, that infrastructure must support execution of a variety of testing jobs. This is why we built TOAST at Taobao.
 
-For more Information, see [User Guides](https://github.com/taobao/toast/wiki)
+For more usage information, see [User Guides](https://github.com/taobao/toast/wiki)
 
 ## Features
 
