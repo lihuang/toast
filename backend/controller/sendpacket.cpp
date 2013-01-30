@@ -38,7 +38,6 @@ int SendPacket(AgentInfo *info, const char *data, int datalength)
         packet->number = info->send_buffer->number++;
         info->send_buffer->send_list.push_back(buffer);
         g_epoll_manager->AddWrite(info->fd);
-        ActiveAgentsManager::Instance()->UnlockList();
         return 0;
     }
     else
