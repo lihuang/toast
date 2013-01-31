@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/wiki/taobao/toast/images/toast.jpg" width="50%" align="middle"/>
+<img src="https://raw.github.com/wiki/taobao/toast/images/toast.jpg" width="50%"/>
 <br>
 
 ## Introduction
