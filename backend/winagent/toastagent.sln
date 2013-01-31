@@ -1,21 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "toastagent", "toastagent.vcxproj", "{DA101665-7FB1-407C-AB11-9C5A29CD7AF3}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lanchagent", "..\lanchagent\lanchagent.vcxproj", "{4E9EC5E4-4C97-4072-864E-FB6B813EE448}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "install64", "install64\install64.vdproj", "{12377C1F-1250-49FE-A297-CE539F079CCC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DA101665-7FB1-407C-AB11-9C5A29CD7AF3} = {DA101665-7FB1-407C-AB11-9C5A29CD7AF3}
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448} = {4E9EC5E4-4C97-4072-864E-FB6B813EE448}
-	EndProjectSection
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "install32", "install32\install32.vdproj", "{42D9A68F-607E-45C0-94A2-A4731D6449B9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DA101665-7FB1-407C-AB11-9C5A29CD7AF3} = {DA101665-7FB1-407C-AB11-9C5A29CD7AF3}
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448} = {4E9EC5E4-4C97-4072-864E-FB6B813EE448}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,24 +19,6 @@ Global
 		{DA101665-7FB1-407C-AB11-9C5A29CD7AF3}.Release|Win32.Build.0 = Release|Win32
 		{DA101665-7FB1-407C-AB11-9C5A29CD7AF3}.Release|x64.ActiveCfg = Release|x64
 		{DA101665-7FB1-407C-AB11-9C5A29CD7AF3}.Release|x64.Build.0 = Release|x64
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Debug|Win32.ActiveCfg = Debug|Win32
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Debug|Win32.Build.0 = Debug|Win32
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Debug|x64.ActiveCfg = Debug|x64
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Debug|x64.Build.0 = Debug|x64
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Release|Win32.ActiveCfg = Release|Win32
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Release|Win32.Build.0 = Release|Win32
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Release|x64.ActiveCfg = Release|x64
-		{4E9EC5E4-4C97-4072-864E-FB6B813EE448}.Release|x64.Build.0 = Release|x64
-		{12377C1F-1250-49FE-A297-CE539F079CCC}.Debug|Win32.ActiveCfg = Debug
-		{12377C1F-1250-49FE-A297-CE539F079CCC}.Debug|x64.ActiveCfg = Debug
-		{12377C1F-1250-49FE-A297-CE539F079CCC}.Release|Win32.ActiveCfg = Release
-		{12377C1F-1250-49FE-A297-CE539F079CCC}.Release|x64.ActiveCfg = Release
-		{12377C1F-1250-49FE-A297-CE539F079CCC}.Release|x64.Build.0 = Release
-		{42D9A68F-607E-45C0-94A2-A4731D6449B9}.Debug|Win32.ActiveCfg = Debug
-		{42D9A68F-607E-45C0-94A2-A4731D6449B9}.Debug|x64.ActiveCfg = Debug
-		{42D9A68F-607E-45C0-94A2-A4731D6449B9}.Release|Win32.ActiveCfg = Release
-		{42D9A68F-607E-45C0-94A2-A4731D6449B9}.Release|Win32.Build.0 = Release
-		{42D9A68F-607E-45C0-94A2-A4731D6449B9}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
