@@ -1,6 +1,6 @@
 ## Introduction
 
-<img src="https://raw.github.com/wiki/taobao/toast/images/toast.jpg"/>
+<img src="https://raw.github.com/wiki/taobao/toast/images/toast.jpg" width="50%"/>
 <br>
 TOAST is short for "Toast Open Automation System for Test". 
 TOAST is a test execution system, and general speaking, it's a tool to run your automation test case or code in a specific test box or test cluster and then show the test result back to you via Email notification or from web UI test result page.
