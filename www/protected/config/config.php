@@ -94,7 +94,7 @@ return array(
         'uploadPath' => dirname(__FILE__) . '/../../upload/attachments/',
         'ciConfigSample' => dirname(__FILE__) . '/../data/ci_run.conf.sample',
         'winAgentLink' => '/upload/public/toastagent.msi',
-        'rra' => '/tmp/rra/',
+        'rraPath' => '/tmp/rra/',
         'pageSize' => 5,
         'dateFormat' => 'Y-m-d H:i:s',
 
