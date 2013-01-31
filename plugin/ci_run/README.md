@@ -1,17 +1,14 @@
+## Requirement
+* python26 or above python2 version，see http://www.python.org/download/
+* python-setuptools, see http://pypi.python.org/pypi/setuptools
+* paramiko, via pip
+* pycrypto, via pip
+* scpclient,  via pip
 
-cmd:
-    yum install python26 -b current [5U]
-    yum install python-setuptools
-    /usr/bin/easy_install pip
-    pip install paramiko
-    pip install scpclient
-    pip install simplejson [5u]
+### Requirement Setup
+    $ /usr/bin/easy_install pip
+    $ pip install paramiko
+    $ pip install scpclient
+    $ pip install simplejson
 
-dependency:
-    python26
-    paramiko
-    pycrypto
-    scpclient
 
-optional:
-    rpm_create
